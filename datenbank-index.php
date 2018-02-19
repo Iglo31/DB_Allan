@@ -1,6 +1,6 @@
 <html>
 <head>
-    asf<meta charset="utf-8">
+    <meta charset="utf-8">
 </head>
 <body>
 <!-- Display table -->
