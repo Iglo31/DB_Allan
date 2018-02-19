@@ -34,7 +34,7 @@ if(mysqli_query($conn, $sql)) {
         hoermuschel_kosten FLOAT(4,2),
         hauptkamera_kosten FLOAT(4,2),
         vorderkamera_kosten FLOAT(4,2),
-        lopfhoererbuchse_kosten FLOAT(4,2),
+        kopfhoererbuchse_kosten FLOAT(4,2),
         akku_kosten FLOAT(4,2),
         ladebuchse_kosten FLOAT(4,2),
         home_button_kosten FLOAT(4,2),
