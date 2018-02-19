@@ -40,7 +40,7 @@ if(!$conn)
 }
 
 
-//Get data vom DB and display as table
+//Get data from DB and display as table
 $sql = "SELECT * FROM reparatur_preise;";
 
 $result = mysqli_query($conn, $sql);
