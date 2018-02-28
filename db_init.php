@@ -2,27 +2,22 @@
 
 /* Creates the database and the table with its desired structure. */
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'Hanorepair';
+require_once "db_meta.php";
 
 $conn = mysqli_connect($servername, $username, $password);
-if($conn) {
-    echo "Successfuly connected!<br />";
-} else {
+if(!$conn) {
     die("Connection failed: ". mysqli_connect_error(). "<br />");
 }
 
-$sql = "CREATE DATABASE $dbname;";
+$sql = "CREATE DATABASE $db_name;";
 if(mysqli_query($conn, $sql)) {
 
-    echo "Successfully created DB: $dbname <br />";
+    echo "Successfully created DB: $db_name <br />";
 
-    $sql = "USE $dbname;";
-    mysqli_query($conn, $sql);
+    mysqli_query($conn, "USE $db_name;");
 
-    $sql = "CREATE TABLE reparatur_preise (
+    $sql = "CREATE TABLE $table_name (
+        aenderungsdatum TIMESTAMP,
         handy_modell VARCHAR(100) NOT NULL PRIMARY KEY,
         analyse_kosten FLOAT(4,2) DEFAULT 0,
         displayschaden_glas_kosten FLOAT(4,2),
@@ -42,7 +37,7 @@ if(mysqli_query($conn, $sql)) {
         software_update_kosten FLOAT(4,2))";
     
     if(mysqli_query($conn, $sql)) {
-        echo "Successfully created Table: Reparatur Preise <br />";
+        echo "Successfully created Table: $table_name <br />";
     }
     else {
         echo "Couldn't create Table: ". mysqli_error($conn). "<br />";
